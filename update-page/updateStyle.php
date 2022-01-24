@@ -85,7 +85,7 @@ main {
   background-color: var(--button-color);
   width: 50%;
   padding: 2.2rem 0;
-  border-radius: 10px;
+  border-radius: 3px;
   margin-bottom: 3.2rem;
 }
 .head_one {
@@ -106,7 +106,7 @@ main {
 .input {
   padding: 1.4rem 1.6rem;
   font-size: 1.8rem;
-  border-radius: 10px;
+  border-radius: 3px;
   background: none;
   border: none;
   background-color: #fff;
@@ -119,7 +119,7 @@ main {
 .input {
   padding: 1.4rem 1.6rem;
   font-size: 1.8rem;
-  border-radius: 10px;
+  border-radius: 3px;
   background: none;
   border: none;
   background-color: #fff;
@@ -136,13 +136,16 @@ main {
   height: 4.8rem;
 }
 .anchor_search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: var(--button-color);
-  width: 100%;
-  height: 100%;
+    background-color: var(--main-color);
+    height: 4.6rem;
+    width: 12rem;
+    font-size: 1.8rem;
+    color: var(--button-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }
 .form {
   display: flex;

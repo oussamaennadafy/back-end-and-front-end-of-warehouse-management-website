@@ -84,7 +84,7 @@ main {
   background-color: var(--button-color);
   width: 50%;
   padding: 2.1rem 2rem;
-  border-radius: 10px;
+  border-radius: 3px;
   position: relative;
 }
 .head_one {
@@ -103,7 +103,7 @@ main {
 .input {
   padding: 1rem;
   font-size: 1.8rem;
-  border-radius: 10px;
+  border-radius: 3px;
   background: none;
   border: none;
   background-color: #fff;
@@ -127,12 +127,15 @@ main {
     font-size: 1.8rem;
     color: var(--button-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 3px;
     cursor: pointer;
 }
 .label {
   font-size: 2rem;
   width: 55rem;
+}
+.label span {
+  color: red;
 }
 .errors_paragraph {
   font-size: 1.8rem;

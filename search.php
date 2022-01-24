@@ -1,3 +1,4 @@
+
 <?php 
 
 $conn = mysqli_connect('localhost', 'shopNow', 'zineb.oussama', 'shopNow_werehouse' );
@@ -25,6 +26,8 @@ mysqli_close($conn);
 ///////////////////////
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,39 +52,48 @@ mysqli_close($conn);
     <main>
       <div class="cnt_of_main">
         <h1 class="head_one">Search</h1>
-        <form class="form" action="#">
+        <form class="form" action="search.php" method="POST">
           <div class="cnt_of_form">
             <label class="label" for="ref">Reference Number</label>
-            <input type="number" class="input" />
+            <input name="ref" type="number" class="input" />
           </div>
           <button class="search_button">
-            <a class="anchor_search" href="#goto">Search</a>
+            <input name="submit" type="submit" value="search" class="anchor_search" >
           </button>
         </form>
       </div>
-      <?php foreach($products as $product) : ?>
-      <div id="goto" class="cnt_of_main">
-        <h1 class="head_one">product</h1>
-        <form action="#">
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Reference Number</label>
-            <p class="product_infos reference_number_paragraph"> <?php echo htmlspecialchars($product['Reference']) ?> </p>
+    
+      <?php foreach($products as $product) { ?>
+        <?php if(isset($_POST['submit'])){
+          if($_POST['ref'] == $product['Reference']) { ?>
+
+            <div id="goto" class="cnt_of_main">
+            <h1 class="head_one">product</h1>
+            <form action="#">
+              <div class="cnt_of_form">
+                <label class="label" for="ref">Reference Number</label>
+                <p class="product_infos reference_number_paragraph"> <?php echo htmlspecialchars($product['Reference']) ?> </p>
+              </div>
+              <div class="cnt_of_form">
+                <label class="label" for="ref">Name</label>
+                <p class="product_infos Name_paragraph"><?php echo htmlspecialchars($product['Name']) ?></p>
+              </div>
+              <div class="cnt_of_form">
+                <label class="label" for="ref">Category</label>
+                <p class="product_infos Category_paragraph"><?php echo htmlspecialchars($product['Category']) ?></p>
+              </div>
+              <div class="cnt_of_form">
+                <label class="label" for="ref">quantity</label>
+                <p class="product_infos quantity_paragraph"><?php echo htmlspecialchars($product['quantity']) ?> pcs</p>
+              </div>
+            </form>
           </div>
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Name</label>
-            <p class="product_infos Name_paragraph"><?php echo htmlspecialchars($product['Name']) ?></p>
-          </div>
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Category</label>
-            <p class="product_infos Category_paragraph"><?php echo htmlspecialchars($product['Category']) ?></p>
-          </div>
-          <div class="cnt_of_form">
-            <label class="label" for="ref">quantity</label>
-            <p class="product_infos quantity_paragraph"><?php echo htmlspecialchars($product['quantity']) ?> pcs</p>
-          </div>
-        </form>
-      </div>
-      <?php endforeach; ?>
+          <?php } ?>
+          <?php } ?>
+          <?php } ?>
+
+
+
     </main>
     <!-- /////////////////////////////////////////// -->
     <footer class="footer">

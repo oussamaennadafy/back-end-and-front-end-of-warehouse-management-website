@@ -40,8 +40,7 @@ $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
     } else {
 
       //if no error in our form
-
-
+      
       $Referece = mysqli_real_escape_string($conn, $_POST['Reference']);
       $Name = mysqli_real_escape_string($conn, $_POST['Name']);
       $Category = mysqli_real_escape_string($conn, $_POST['Category']);
@@ -56,7 +55,7 @@ $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
         //database added
         //header('Location: search.php');
       } else {
-        echo 'query error: ' . mysqli_error($conn); 
+         echo 'query error: ' . mysqli_error($conn); 
       }
   }
 
@@ -87,21 +86,21 @@ $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
         <h1 class="head_one">add product</h1>
         <form action="index.php" method="POST">
           <div class="cnt_of_form">
-            <label class="label" for="ref">Reference Number</label>
+            <label class="label" for="ref">Reference Number (optional)</label>
             <input  type="number" class="input" name="Reference" />
           </div> 
           <div class="cnt_of_form">
-            <label class="label" for="ref">Name</label>
+            <label class="label" for="ref">Name<span> *</span></label>
             <input type="text" class="input" name="Name" />
           </div>
           <div class="errors_paragraph"> <?php echo $errors['Name'] ?> </div>
           <div class="cnt_of_form">
-            <label class="label" for="ref">Category</label>
+            <label class="label" for="ref">Category<span> *</span></label>
             <input type="text" class="input" name="Category" />
           </div>
           <div class="errors_paragraph"> <?php echo $errors['Category'] ?> </div>
           <div class="cnt_of_form">
-            <label class="label" for="ref">quantity</label>
+            <label class="label" for="ref">quantity<span> *</span></label>
             <input type="number" class="input" name="quantity" />
           </div>
           <div class="errors_paragraph"> <?php echo $errors['quantity'] ?> </div>

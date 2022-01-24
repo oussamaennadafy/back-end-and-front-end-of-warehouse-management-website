@@ -16,13 +16,33 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ///////////////////////
 
-mysqli_free_result($result);
+// mysqli_free_result($result);
 
 ///////////////////////
 
-mysqli_close($conn);
+// mysqli_close($conn);
 
 ///////////////////////
+
+
+if(isset($_POST['update'])){
+
+  
+      $reference = htmlspecialchars($_POST['Reference']);
+      $name = htmlspecialchars($_POST['Name']);
+      $category = htmlspecialchars($_POST['Category']);
+      $quantity = htmlspecialchars($_POST['quantity']);
+
+      $sql = "UPDATE `products` SET `Name`='$name',`Category`='$category',`quantity`='$quantity' WHERE `Reference`='$reference'";
+    if(mysqli_query($conn,$sql)) 
+    {
+      header("Location: update.php");
+    } 
+     
+  else{
+    echo "query error" . mysqli_error($conn);
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,45 +66,51 @@ mysqli_close($conn);
 
     <!-- /////////////////////////////////////////// -->
     <main>
-      <div class="cnt_of_main">
+    <div class="cnt_of_main">
         <h1 class="head_one">Search</h1>
-        <form class="form" action="#">
+        <form class="form" action="update.php" method="POST">
           <div class="cnt_of_form">
             <label class="label" for="ref">Reference Number</label>
-            <input type="number" class="input" />
+            <input name="ref" type="number" class="input" />
           </div>
           <button class="search_button">
-            <a class="anchor_search" href="#goto">Search</a>
+            <input name="submit" type="submit" value="search" class="anchor_search" >
           </button>
         </form>
       </div>
-      <?php foreach($products as $product) { ?>
+
+
+
+      <?php if(isset($_POST['submit'])) { ?>
+        <?php foreach($products as $product) {
+          if($_POST['ref'] == $product['Reference']) { ?>
       <div id="goto" class="cnt_of_main">
         <h1 class="head_one">product</h1>
-        <form action="#">
+        <form  method="POST">
           <div class="cnt_of_form">
             <label class="label" for="ref">Reference Number</label>
-            <input value='<?php echo htmlspecialchars($product['Reference']) ?>' type="number" class="input" />
+            <input name="Reference" value='<?php echo htmlspecialchars($product['Reference']) ?>' type="number" class="input" />
           </div>
           <div class="cnt_of_form">
             <label class="label" for="ref">Name</label>
-            <input value='<?php echo htmlspecialchars($product['Name']) ?>' type="text" class="input" />
+            <input name="Name" value='<?php echo htmlspecialchars($product['Name']) ?>' type="text" class="input" />
           </div>
           <div class="cnt_of_form">
             <label class="label" for="ref">Category</label>
-            <input value='<?php echo htmlspecialchars($product['Category']) ?>' type="text" class="input" />
+            <input name="Category" value='<?php echo htmlspecialchars($product['Category']) ?>' type="text" class="input" />
           </div>
           <div class="cnt_of_form">
             <label class="label" for="ref">quantity</label>
-            <input value='<?php echo htmlspecialchars($product['quantity']) ?>' type="number" class="input" />
+            <input name="quantity" value='<?php echo htmlspecialchars($product['quantity']) ?>' type="number" class="input" />
           </div>
           <div class="cnt_of_form spaecial_margin_bottom">
-            <button class="search_button">
-              <a class="anchor_search" href="#goto">update</a>
-            </button>
+            <input type="hidden" name="ref" value="<?php echo $product['Reference'] ?>">
+            <input type="submit" name="update" value="update" class="anchor_search">
           </div>
         </form>
       </div>
+      <?php } ?>
+      <?php } ?>
       <?php } ?>
     </main>
     <!-- /////////////////////////////////////////// -->

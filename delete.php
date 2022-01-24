@@ -20,13 +20,12 @@ mysqli_free_result($result);
 
 ///////////////////////
 
-mysqli_close($conn);
 
 ///////////////////////
 
 
 if(isset($_POST['delete'])) {
-  $ref_to_delete = mysqli_real_escape_string($conn, $_POST['ref_to-delete']);
+  $ref_to_delete = mysqli_real_escape_string($conn, $_POST['ref_to_delete']);
 
   $sql = "DELETE FROM products WHERE Reference = $ref_to_delete";
 
@@ -61,20 +60,25 @@ if(isset($_POST['delete'])) {
     <main>
       <div class="cnt_of_main">
         <h1 class="head_one">Search</h1>
-        <form class="form" action="#">
+        <form class="form" action="delete.php" method="POST">
           <div class="cnt_of_form">
             <label class="label" for="ref">Reference Number</label>
-            <input type="number" class="input" />
+            <input name="ref" type="number" class="input" />
           </div>
           <button class="search_button">
-            <a class="anchor_search" href="#goto">Search</a>
+            <input name="submit" type="submit" value="search" class="anchor_search" >
           </button>
         </form>
       </div>
-      <?php foreach($products as $product) { ?>
+
+
+
+      <?php if(isset($_POST['submit'])) { ?>
+        <?php foreach($products as $product) {
+          if($_POST['ref'] == $product['Reference']) { ?>
       <div id="goto" class="cnt_of_main">
         <h1 class="head_one">product</h1>
-        <form action="#">
+        <form action="delete.php" method="POST">
           <div class="cnt_of_form">
             <label class="label" for="ref">Reference Number</label>
             <p class="product_infos reference_number_paragraph"><?php echo htmlspecialchars($product['Reference']) ?></p>
@@ -92,13 +96,13 @@ if(isset($_POST['delete'])) {
             <p class="product_infos quantity_paragraph"><?php echo htmlspecialchars($product['quantity']) ?> pcs</p>
           </div>
           <div class="cnt_of_form spaecial_margin_bottom">
-          <form action="delete.php" method="POST" class="cnt_of_form spaecial_margin_bottom">
             <input type="hidden" name="ref_to_delete" value="<?php echo $product['Reference'] ?>">
             <input type="submit" name="delete" value="delete" class="anchor_search">
-          </form>
           </div>
         </form>
       </div>
+      <?php } ?>
+      <?php } ?>
       <?php } ?>
     </main>
     <!-- /////////////////////////////////////////// -->
