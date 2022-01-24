@@ -1,4 +1,3 @@
-
 <?php header("Content-type: text/css"); ?>
 
 * {
@@ -20,7 +19,7 @@ body {
 }
 main {
   width: 100vw;
-  min-height:calc(100vh - 9.6rem - 3.2rem);
+  min-height:calc(100vh - 9.6rem - 3rem);
   background-image: url(../images/background-desktop.jpg);
   background-size: cover;
   background-attachment: fixed;

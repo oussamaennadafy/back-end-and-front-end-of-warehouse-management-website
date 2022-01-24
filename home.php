@@ -27,7 +27,6 @@ mysqli_close($conn);
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,31 +40,15 @@ mysqli_close($conn);
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="search-page/searchStyle.php" />
-    <link rel="stylesheet" href="search-page/query.php" />
+    <link rel="stylesheet" href="home-page/home.php" />
+    <link rel="stylesheet" href="home-page/query.css" />
   </head>
   <body>
-    
-  <?php include('reusable/header.php'); ?>
-
+    <?php include('reusable/header.php'); ?>
     <!-- /////////////////////////////////////////// -->
-    <main>
-      <div class="cnt_of_main">
-        <h1 class="head_one">Search</h1>
-        <form class="form" action="search.php" method="POST">
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Reference Number</label>
-            <input name="ref" type="number" class="input" />
-          </div>
-          <button class="search_button">
-            <input name="submit" type="submit" value="search" class="anchor_search" >
-          </button>
-        </form>
-      </div>
-    
-      <?php if(isset($_POST['submit'])) { ?>
-        <?php foreach($products as $product) {
-          if($_POST['ref'] == $product['Reference']) { ?>
+  <main>
+
+        <?php foreach($products as $product) { ?>
             <div id="goto" class="cnt_of_main">
             <h1 class="head_one">product</h1>
             <form action="#">
@@ -88,14 +71,10 @@ mysqli_close($conn);
             </form>
           </div>
           <?php } ?>
-          <?php } ?>
-          <?php } ?>
 
-
-
-    </main>
-    <!-- /////////////////////////////////////////// -->
-    <footer class="footer">
+  </main>
+      <!-- /////////////////////////////////////////// -->
+      <footer class="footer">
       <p class="paragraph_of_footer">
         © 1996-2022, ShopNow.com, Inc. or its affiliates
       </p>
@@ -110,5 +89,5 @@ mysqli_close($conn);
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

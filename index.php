@@ -45,11 +45,10 @@ $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
       $Name = mysqli_real_escape_string($conn, $_POST['Name']);
       $Category = mysqli_real_escape_string($conn, $_POST['Category']);
       $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
-
-
+      
       //create sql
       $sql = "INSERT INTO products(Reference,Name,Category,quantity) VALUES('$Referece', '$Name', '$Category', '$quantity')";
-
+      
       // save to dataBase
       if(mysqli_query($conn,$sql)) {
         //database added

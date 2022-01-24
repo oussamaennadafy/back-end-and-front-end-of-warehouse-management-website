@@ -6,6 +6,9 @@
         <nav class="nav">
           <ul class="ul_of_nav">
             <li>
+              <a class="anchor_of_navigation" href="home.php">home</a>
+            </li>
+            <li>
               <a class="anchor_of_navigation" href="index.php">add product</a>
             </li>
             <li>

@@ -1,3 +1,4 @@
+
 <?php header("Content-type: text/css"); ?>
 
 * {
@@ -19,7 +20,7 @@ body {
 }
 main {
   width: 100vw;
-  min-height:calc(100vh - 9.6rem - 3rem);
+  min-height: calc(100vh - 9.6rem - 3.2rem);
   background-image: url(../images/background-desktop.jpg);
   background-size: cover;
   background-attachment: fixed;
@@ -64,8 +65,9 @@ main {
   color: #fff;
 }
 .btn_icons {
-  color:#fff;
+  color: #fff;
   background: none;
+  color: #fff;
   border: none;
   display: flex;
   cursor: pointer;
@@ -86,6 +88,7 @@ main {
   padding: 2.2rem 0;
   border-radius: 3px;
   margin-bottom: 3.2rem;
+  position: relative;
 }
 .head_one {
   text-align: center;
@@ -99,17 +102,9 @@ main {
   width: 80%;
   margin: 0 auto 2.2rem auto;
 }
-.cnt_of_form.spaecial_margin_bottom {
-  margin-bottom: 0;
-}
-.input {
-  padding: 1.4rem 1.6rem;
-  font-size: 1.8rem;
-  border-radius: 3px;
-  background: none;
-  border: none;
-  background-color: #fff;
-  outline: none;
+.product_infos {
+  font-size: 2rem;
+  width: 17rem;
 }
 .label {
   font-size: 2rem;
@@ -135,16 +130,14 @@ main {
   height: 4.8rem;
 }
 .anchor_search {
-    background-color: var(--main-color);
-    height: 4.6rem;
-    width: 12rem;
-    font-size: 1.8rem;
-    color: var(--button-color);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
+  background-color: var(--main-color);
+  height: 100%;
+  width: 100%;
+  font-size: 1.8rem;
+  color: var(--button-color);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 .form {
   display: flex;
