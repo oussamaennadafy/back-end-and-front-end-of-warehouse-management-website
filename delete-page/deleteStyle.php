@@ -59,9 +59,19 @@ main {
   display: flex;
 }
 .anchor_of_navigation {
-  font-size: 1.8rem;
-  text-decoration: none;
-  color: #fff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #fff;
+    position:relative;
+}
+.anchor_five::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
 }
 .btn_icons {
   color:#fff;
@@ -146,6 +156,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.no_product_found {
+  text-align: center;
+  color: #fff;
+  font-size:2rem;
+}
+.home_anchor {
+  text-decoration: none;
+  color: #f14141;
 }
 /* //////////////////////////// */
 .footer {

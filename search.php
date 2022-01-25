@@ -91,6 +91,9 @@ mysqli_close($conn);
           <?php } ?>
           <?php } ?>
 
+          <?php if($products == null) { ?>
+            <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="home.php">home page</a> </p>
+          <?php } ?>
 
 
     </main>

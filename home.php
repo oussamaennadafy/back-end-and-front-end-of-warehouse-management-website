@@ -40,8 +40,8 @@ mysqli_close($conn);
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="home-page/home.php" />
-    <link rel="stylesheet" href="home-page/query.css" />
+    <link rel="stylesheet" href="home-page/homeStyle.css" />
+    <link rel="stylesheet" href="home-page/query.php" />
   </head>
   <body>
     <?php include('reusable/header.php'); ?>
@@ -71,6 +71,10 @@ mysqli_close($conn);
             </form>
           </div>
           <?php } ?>
+          <?php if($products == null) { ?>
+            <p class="no_product_found"> we couldn't find any product </p>
+          <?php } ?>
+          
 
   </main>
       <!-- /////////////////////////////////////////// -->

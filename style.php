@@ -59,9 +59,19 @@ main {
   display: flex;
 }
 .anchor_of_navigation {
-  font-size: 1.8rem;
-  text-decoration: none;
-  color: #fff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #fff;
+    position:relative;
+}
+.anchor_two::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
 }
 .btn_icons {
   background: none;

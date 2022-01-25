@@ -6,23 +6,23 @@
         <nav class="nav">
           <ul class="ul_of_nav">
             <li>
-              <a class="anchor_of_navigation" href="home.php">home</a>
+              <a class="anchor_of_navigation anchor_one" href="home.php">home</a>
             </li>
             <li>
-              <a class="anchor_of_navigation" href="index.php">add product</a>
+              <a class="anchor_of_navigation anchor_two" href="index.php">add product</a>
             </li>
             <li>
-              <a class="anchor_of_navigation" href="search.php">
+              <a class="anchor_of_navigation anchor_three" href="search.php">
                 search for product</a
               >
             </li>
             <li>
-              <a class="anchor_of_navigation" href="update.php"
+              <a class="anchor_of_navigation anchor_four" href="update.php"
                 >update</a
               >
             </li>
             <li>
-              <a class="anchor_of_navigation" href="delete.php"
+              <a class="anchor_of_navigation anchor_five" href="delete.php"
                 >delete</a
               >
             </li>

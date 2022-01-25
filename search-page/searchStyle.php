@@ -1,4 +1,3 @@
-
 <?php header("Content-type: text/css"); ?>
 
 * {
@@ -60,9 +59,19 @@ main {
   display: flex;
 }
 .anchor_of_navigation {
-  font-size: 1.8rem;
-  text-decoration: none;
-  color: #fff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #fff;
+    position:relative;
+}
+.anchor_three::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
 }
 .btn_icons {
   background: none;
@@ -78,6 +87,15 @@ main {
   background-color: transparent;
   width: 4rem;
   height: 4rem;
+}
+.no_product_found {
+  text-align: center;
+  color: #fff;
+  font-size:2rem;
+}
+.home_anchor {
+  text-decoration: none;
+  color: #f14141;
 }
 /* //////////////////////////// */
 .cnt_of_main {
