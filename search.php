@@ -97,7 +97,8 @@ mysqli_close($conn);
           
           <?php if(isset($_POST['submit'])) { ?>
           <?php if($incorrect_ref !== 0) { ?>
-            <p class="no_product_found"> there is no product at all </p>
+            <p class="no_product_found">sorry, we couldn't find any result</p>
+            
           <?php } ?>
           <?php } ?>
           
