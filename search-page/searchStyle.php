@@ -89,9 +89,14 @@ main {
   height: 4rem;
 }
 .no_product_found {
-  text-align: center;
-  color: #fff;
-  font-size:2rem;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    background-color: var(--button-color);
+    width: fit-content;
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 6px;
 }
 .home_anchor {
   text-decoration: none;

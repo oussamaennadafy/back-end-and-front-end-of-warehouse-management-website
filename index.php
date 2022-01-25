@@ -40,7 +40,7 @@ mysqli_close($conn);
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="home-page/homeStyle.css" />
+    <link rel="stylesheet" href="home-page/homeStyle.php" />
     <link rel="stylesheet" href="home-page/query.php" />
   </head>
   <body>
