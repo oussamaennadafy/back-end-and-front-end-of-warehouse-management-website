@@ -1,5 +1,6 @@
 
 <?php 
+$incorrect_ref = 1;
 
 $conn = mysqli_connect('localhost', 'shopNow', 'zineb.oussama', 'shopNow_werehouse' );
 
@@ -62,7 +63,10 @@ mysqli_close($conn);
           </button>
         </form>
       </div>
-    
+
+
+
+
       <?php if(isset($_POST['submit'])) { ?>
         <?php foreach($products as $product) {
           if($_POST['ref'] == $product['Reference']) { ?>
@@ -87,9 +91,16 @@ mysqli_close($conn);
               </div>
             </form>
           </div>
+          <?php $incorrect_ref = 0; } ?>
           <?php } ?>
           <?php } ?>
+          
+          <?php if(isset($_POST['submit'])) { ?>
+          <?php if($incorrect_ref !== 0) { ?>
+            <p class="no_product_found"> there is no product at all </p>
           <?php } ?>
+          <?php } ?>
+          
 
           <?php if($products == null) { ?>
             <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="home.php">home page</a> </p>

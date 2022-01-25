@@ -1,5 +1,8 @@
 <?php 
 
+$incorrect_ref = 1;
+
+
 $conn = mysqli_connect('localhost', 'shopNow', 'zineb.oussama', 'shopNow_werehouse' );
 
 /////////////////////
@@ -101,7 +104,13 @@ if(isset($_POST['delete'])) {
           </div>
         </form>
       </div>
+      <?php $incorrect_ref = 0; } ?>
       <?php } ?>
+      <?php } ?>
+          
+      <?php if(isset($_POST['submit'])) { ?>
+      <?php if($incorrect_ref !== 0) { ?>
+          <p class="no_product_found"> there is no product at all </p>
       <?php } ?>
       <?php } ?>
       
