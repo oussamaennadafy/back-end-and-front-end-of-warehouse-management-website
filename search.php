@@ -96,7 +96,7 @@ mysqli_close($conn);
           <?php } ?>
           
           <?php if($products == null) { ?>
-            <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="home.php">home page</a> </p>
+            <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="index.php">home page</a> </p>
           <?php $incorrect_ref = 0; } ?>
 
 

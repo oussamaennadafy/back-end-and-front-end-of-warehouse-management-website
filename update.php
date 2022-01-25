@@ -92,7 +92,7 @@ if(isset($_POST['update'])){
         <form  method="POST">
           <div class="cnt_of_form">
             <label class="label" for="ref">Reference Number</label>
-            <input name="Reference" value='<?php echo htmlspecialchars($product['Reference']) ?>' type="number" class="input" />
+            <input readonly name="Reference" value='<?php echo htmlspecialchars($product['Reference']) ?>' type="number" class="input" />
           </div>
           <div class="cnt_of_form">
             <label class="label" for="ref">Name</label>
@@ -117,7 +117,7 @@ if(isset($_POST['update'])){
       <?php } ?>
 
       <?php if($products == null) { ?>
-            <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="home.php">home page</a> </p>
+            <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="index.php">home page</a> </p>
           <?php $incorrect_ref = 0; } ?>
 
       <?php if(isset($_POST['submit'])) { ?>

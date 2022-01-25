@@ -6,10 +6,10 @@
         <nav class="nav">
           <ul class="ul_of_nav">
             <li>
-              <a class="anchor_of_navigation anchor_one" href="home.php">home</a>
+              <a class="anchor_of_navigation anchor_one" href="index.php">home</a>
             </li>
             <li>
-              <a class="anchor_of_navigation anchor_two" href="index.php">add product</a>
+              <a class="anchor_of_navigation anchor_two" href="add.php">add product</a>
             </li>
             <li>
               <a class="anchor_of_navigation anchor_three" href="search.php">

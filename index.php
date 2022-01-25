@@ -1,65 +1,31 @@
+
 <?php 
 
 $conn = mysqli_connect('localhost', 'shopNow', 'zineb.oussama', 'shopNow_werehouse' );
 
+/////////////////////
 
-$errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
+$sql = 'SELECT * FROM products';
 
+//////////////////////
 
+$result = mysqli_query($conn,$sql);
 
-  if(isset($_POST['submit'])) {
-    
-    //check Reference
-    if(!empty($_POST['Reference'])) {
-      $Referece = $_POST['Reference'];
-    } 
+//////////////////////
 
-    //check Name
-    if(empty($_POST['Name'])) {
-      $errors['Name'] = 'Name is required <br/>';
-    } else {
-      $Name =  $_POST['Name'];
-    }
+$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    //check Category
-    if(empty($_POST['Category'])) {
-      $errors['Category'] = 'Category is required <br/>';
-    } else {
-      $Category = $_POST['Category'];
-    }
+///////////////////////
 
-    //check quantity
-    if(empty($_POST['quantity'])) {
-      $errors['quantity'] = 'quantity is required <br/>';
-    } else {
-      $quantity = $_POST['quantity'];
-    }  
-    
-    if(array_filter($errors)) {
-      //error in form
-    } else {
+mysqli_free_result($result);
 
-      //if no error in our form
-      
-      $Referece = mysqli_real_escape_string($conn, $_POST['Reference']);
-      $Name = mysqli_real_escape_string($conn, $_POST['Name']);
-      $Category = mysqli_real_escape_string($conn, $_POST['Category']);
-      $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
-      
-      //create sql
-      $sql = "INSERT INTO products(Reference,Name,Category,quantity) VALUES('$Referece', '$Name', '$Category', '$quantity')";
-      
-      // save to dataBase
-      if(mysqli_query($conn,$sql)) {
-        //database added
-        //header('Location: search.php');
-      } else {
-         echo 'query error: ' . mysqli_error($conn); 
-      }
-  }
+///////////////////////
 
-}
+mysqli_close($conn);
+
+///////////////////////
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,43 +40,45 @@ $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.php" />
-    <link rel="stylesheet" href="query.css" />
+    <link rel="stylesheet" href="home-page/homeStyle.css" />
+    <link rel="stylesheet" href="home-page/query.php" />
   </head>
   <body>
     <?php include('reusable/header.php'); ?>
     <!-- /////////////////////////////////////////// -->
-    <main>
-      <div class="cnt_of_main">
-        <h1 class="head_one">add product</h1>
-        <form action="index.php" method="POST">
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Reference Number (optional)</label>
-            <input  type="number" class="input" name="Reference" />
-          </div> 
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Name<span> *</span></label>
-            <input type="text" class="input" name="Name" />
+  <main>
+
+        <?php foreach($products as $product) { ?>
+            <div id="goto" class="cnt_of_main">
+            <h1 class="head_one">product</h1>
+            <form action="#">
+              <div class="cnt_of_form">
+                <label class="label" for="ref">Reference Number</label>
+                <p class="product_infos reference_number_paragraph"> <?php echo htmlspecialchars($product['Reference']) ?> </p>
+              </div>
+              <div class="cnt_of_form">
+                <label class="label" for="ref">Name</label>
+                <p class="product_infos Name_paragraph"><?php echo htmlspecialchars($product['Name']) ?></p>
+              </div>
+              <div class="cnt_of_form">
+                <label class="label" for="ref">Category</label>
+                <p class="product_infos Category_paragraph"><?php echo htmlspecialchars($product['Category']) ?></p>
+              </div>
+              <div class="cnt_of_form">
+                <label class="label" for="ref">quantity</label>
+                <p class="product_infos quantity_paragraph"><?php echo htmlspecialchars($product['quantity']) ?> pcs</p>
+              </div>
+            </form>
           </div>
-          <div class="errors_paragraph"> <?php echo $errors['Name'] ?> </div>
-          <div class="cnt_of_form">
-            <label class="label" for="ref">Category<span> *</span></label>
-            <input type="text" class="input" name="Category" />
-          </div>
-          <div class="errors_paragraph"> <?php echo $errors['Category'] ?> </div>
-          <div class="cnt_of_form">
-            <label class="label" for="ref">quantity<span> *</span></label>
-            <input type="number" class="input" name="quantity" />
-          </div>
-          <div class="errors_paragraph"> <?php echo $errors['quantity'] ?> </div>
-          <div class="cnt_of_form special_margin_bottom">
-              <input type="submit" name="submit" value="add" class="anchor_search">
-          </div>
-        </form>
-      </div>
-    </main>
-    <!-- /////////////////////////////////////////// -->
-    <footer class="footer">
+          <?php } ?>
+          <?php if($products == null) { ?>
+            <p class="no_product_found"> we couldn't find any product </p>
+          <?php } ?>
+          
+
+  </main>
+      <!-- /////////////////////////////////////////// -->
+      <footer class="footer">
       <p class="paragraph_of_footer">
         © 1996-2022, ShopNow.com, Inc. or its affiliates
       </p>
@@ -125,5 +93,5 @@ $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
