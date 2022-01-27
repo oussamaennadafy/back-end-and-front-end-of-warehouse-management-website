@@ -5,15 +5,37 @@ $conn = mysqli_connect('localhost', 'shopNow', 'zineb.oussama', 'shopNow_werehou
 
 $errors = array('Name'=>'', 'Category'=>'', 'quantity'=>'');
 
+$sql = 'SELECT * FROM products';
 
+//////////////////////
+
+$result = mysqli_query($conn,$sql);
+
+//////////////////////
+
+$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   if(isset($_POST['submit'])) {
     
     //check Reference
     if(!empty($_POST['Reference'])) {
       $Referece = $_POST['Reference'];
-    } 
+    }
 
+    // foreach($products as $product) {
+    //   if($Referece == $product['Reference']) {
+    //     echo '<h1>ref repeated</h1>';
+    //     break;
+    //   }
+    // }
+    $check = 0;
+    foreach($products as $product) {
+      if($Referece == $product['Reference']) {
+    $check = 1;
+    break;
+      }
+    }
+    
     //check Name
     if(empty($_POST['Name'])) {
       $errors['Name'] = 'Name is required <br/>';

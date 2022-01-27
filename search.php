@@ -99,9 +99,9 @@ mysqli_close($conn);
             <p class="no_product_found"> there is no product at all check out the <a class="home_anchor" href="index.php">home page</a> </p>
           <?php $incorrect_ref = 0; } ?>
 
-
+          
           <?php if(isset($_POST['submit'])) { ?>
-          <?php if($incorrect_ref !== 0) { ?>
+          <?php if($incorrect_ref != 0) { ?>
             <p class="no_product_found">sorry, we couldn't find any result</p>
           <?php } ?>
           <?php } ?>
